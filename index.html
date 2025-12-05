@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #9f4fff 0%, #fba506 100%);
+    }
+
+    /* Frosted glass effect para inputs */
+input {
+  background: rgba(109, 40, 217, 0.25);
+  border: 1.5px solid #6b21a8;
+  color: #d8b4fe;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  height: 50px; /* define altura da caixa */
+  padding: 10px;    /* remover padding para não aumentar a altura */
+  font-size: 10px; /* opcional: ajustar texto para caber na caixa */
+  padding-left: 20px; /* aumenta o espaço do texto para a esquerda */
+  padding-left: 20px !important;
+}
+
+
+    input::placeholder {
+      color: #c4b5fd; /* roxo suave */
+      opacity: 1;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #a78bfa; /* roxo mais claro */
+      box-shadow: 0 0 10px 2px #a78bfa;
+      background: rgba(167, 139, 250, 0.3);
+    }
+
+    label {
+      margin-bottom: 0.75rem; /* mais espaço entre label e input */
+      font-weight: 500;
+    }
+
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-top-right-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-container img {
+      flex-grow: 1;
+      width: 100%;
+      object-fit: cover;
+      border-top-right-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.6);
+      border-top-right-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      transition: background 0.4s ease;
+      z-index: 10;
+    }
+
+    .image-container:hover .image-overlay {
+      background: rgba(10, 10, 10, 0);
+    }
+
+    .image-container:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-6">
+
+  <div
+    class="flex flex-col md:flex-row w-full max-w-4xl rounded-3xl bg-[#0a0a0a] shadow-lg overflow-hidden h-[90vh]"
+    style="box-shadow: 0 10px 30px rgb(70 0 150 / 0.3)"
+  >
+
+    <div class="flex flex-col justify-center flex-1 px-12 py-16 md:py-24 h-full">
+      <h1 class="text-white text-4xl font-extrabold mb-10 select-none">
+        Conecte-se ao Hub<span class="text-pink-500">.</span>
+      </h1>
+
+      <form id="loginForm" class="space-y-10">
+
+        <div class="flex flex-col">
+          <label for="email" class="text-gray-400 text-sm select-none">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Seu email"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col">
+          <label for="password" class="text-gray-400 text-sm select-none">Senha</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Sua senha"
+            required
+          />
+          <a href="#" class="text-xs text-gray-500 hover:text-pink-500 mt-1 self-end select-none">Esqueci minha senha</a>
+        </div>
+
+        <button
+          type="submit"
+          class="btn-gradient w-full rounded-lg py-3 text-white font-semibold text-lg transition hover:brightness-110"
+        >
+          Entrar
+        </button>
+
+      </form>
+
+      <p class="text-center text-gray-500 mt-8 text-sm select-none">
+        Ainda não tenho uma conta
+      </p>
+    </div>
+
+    <div class="hidden md:flex flex-1 image-container h-full">
+      <img
+        src="https://images.unsplash.com/photo-1597514110707-b988d3a08652?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        alt="Paisagem de montanhas ao amanhecer"
+        loading="lazy"
+      />
+      <div class="image-overlay"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      const password = form.password.value.trim();
+
+      if (!email) {
+        alert('Por favor, preencha o campo Email.');
+        form.email.focus();
+        return;
+      }
+      if (!password) {
+        alert('Por favor, preencha o campo Senha.');
+        form.password.focus();
+        return;
+      }
+
+      alert('Login realizado com sucesso!');
+      // window.location.href = 'bemvindo.html';
+    });
+  </script>
+    <script>
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const email = form.email.value.trim();
+  const password = form.password.value.trim();
+
+  if (!email) {
+    alert('Por favor, preencha o campo Email.');
+    form.email.focus();
+    return;
+  }
+  if (!password) {
+    alert('Por favor, preencha o campo Senha.');
+    form.password.focus();
+    return;
+  }
+
+  alert('Login realizado com sucesso!');
+  window.location.href = 'bemvindo.html';  // redireciona para a página de boas-vindas
+});
+    </script>
+</body>
+</html>

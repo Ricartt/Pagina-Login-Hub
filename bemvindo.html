@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Startup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      color: #d8b4fe;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Gradiente do botão */
+    .btn-gradient {
+      background: linear-gradient(90deg, #9f4fff 0%, #fba506 100%);
+      transition: filter 0.3s ease;
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.1);
+    }
+    /* Header */
+    header {
+      padding: 1.5rem 2rem;
+      background: #1e0a4f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgb(159 79 255 / 0.3);
+    }
+    header h1 {
+      font-weight: 900;
+      font-size: 1.75rem;
+      color: #fba506;
+      user-select: none;
+    }
+    nav a {
+      color: #d8b4fe;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    nav a:hover {
+      color: #fba506;
+    }
+
+    /* Main content */
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    main h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #9f4fff;
+      user-select: none;
+    }
+    main p {
+      color: #c4b5fd;
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+      user-select: none;
+    }
+
+    /* Cards container */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card styles */
+    .card {
+      background: rgba(159, 79, 255, 0.15);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgb(159 79 255 / 0.3);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .card:hover {
+      background: rgba(251, 165, 6, 0.15);
+      box-shadow: 0 6px 20px rgb(251 165 6 / 0.5);
+    }
+    .card h3 {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #fba506;
+    }
+    .card p {
+      font-size: 1.1rem;
+      color: #d8b4fe;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1rem 2rem;
+      text-align: center;
+      color: #6b21a8;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Botão de logout */
+    .btn-logout {
+      background: none;
+      border: 2px solid #fba506;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      color: #fba506;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      user-select: none;
+    }
+    .btn-logout:hover {
+      background: #fba506;
+      color: #0a0a0a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Startup<span style="color:#fba506;">.</span></h1>
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Projetos</a>
+    <a href="#">Equipe</a>
+    <a href="#">Configurações</a>
+    <button class="btn-logout" onclick="logout()">Logout</button>
+  </nav>
+</header>
+
+<main>
+  <h2>Bem-vindo ao sistema interno!</h2>
+  <p>Estamos felizes em ter você aqui. Use o painel abaixo para acompanhar suas tarefas, notificações e informações importantes.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Tarefas Pendentes</h3>
+      <p>Você tem 5 tarefas pendentes para hoje. Não deixe de conferir!</p>
+    </div>
+    <div class="card">
+      <h3>Notificações</h3>
+      <p>3 novas notificações foram recebidas. Clique para ver os detalhes.</p>
+    </div>
+    <div class="card">
+      <h3>Usuários Ativos</h3>
+      <p>Hoje, 20 usuários estão ativos no sistema.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Startup. Todos os direitos reservados.
+</footer>
+
+<script>
+  function logout() {
+    if (confirm('Deseja realmente sair?')) {
+      window.location.href = 'index.html'; 
+    }
+  }
+</script>
+
+</body>
+</html>
